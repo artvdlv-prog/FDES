@@ -3,7 +3,9 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(ls:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(start \"C:\\Users\\art-s\\code\\FDES\\test.html\")",
+      "Bash(explorer:*)"
     ],
     "deny": []
   }

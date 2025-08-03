@@ -262,6 +262,12 @@ body {
     color: var(--neutral-dark);
     transition: color 0.2s ease;
     cursor: pointer;
+    padding: 0.25rem;
+    border-radius: var(--radius-sm);
+}
+
+.lang-en:hover, .lang-ru:hover {
+    background: rgba(69, 123, 157, 0.1);
 }
 
 .lang-en.active, .lang-ru.active {
