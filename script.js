@@ -359,8 +359,9 @@ document.addEventListener('DOMContentLoaded', function() {
         langEn.classList.toggle('active', lang === 'en');
         langRu.classList.toggle('active', lang === 'ru');
 
-        // Update document lang attribute
+        // Update document lang attributes
         document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
 
         // Update all elements with data attributes
         const elements = document.querySelectorAll('[data-en], [data-ru]');
