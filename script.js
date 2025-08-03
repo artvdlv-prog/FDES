@@ -335,4 +335,51 @@ document.addEventListener('DOMContentLoaded', function() {
         window.removeEventListener('scroll', arguments.callee);
         window.addEventListener('scroll', requestScrollUpdate, { passive: true });
     }
+
+    // Language switching functionality
+    const langToggle = document.getElementById('lang-toggle');
+    const langEn = document.querySelector('.lang-en');
+    const langRu = document.querySelector('.lang-ru');
+
+    // Get saved language or default to English
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    let currentLanguage = savedLanguage;
+
+    // Set initial language
+    setLanguage(currentLanguage);
+
+    // Language toggle event listeners
+    langEn.addEventListener('click', () => setLanguage('en'));
+    langRu.addEventListener('click', () => setLanguage('ru'));
+
+    function setLanguage(lang) {
+        currentLanguage = lang;
+        
+        // Update active state
+        langEn.classList.toggle('active', lang === 'en');
+        langRu.classList.toggle('active', lang === 'ru');
+
+        // Update document lang attribute
+        document.documentElement.setAttribute('data-lang', lang);
+
+        // Update all elements with data attributes
+        const elements = document.querySelectorAll('[data-en], [data-ru]');
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${lang}`);
+            if (text) {
+                // Handle HTML content in data attributes
+                if (text.includes('<')) {
+                    element.innerHTML = text;
+                } else {
+                    element.textContent = text;
+                }
+            }
+        });
+
+        // Save language preference
+        localStorage.setItem('language', lang);
+    }
+
+    // Add smooth transition for language changes
+    document.documentElement.style.transition = 'opacity 0.2s ease';
 });

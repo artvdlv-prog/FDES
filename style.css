@@ -187,6 +187,17 @@ body {
         text-align: center;
         border-bottom: 1px solid var(--neutral-medium);
     }
+    
+    .language-toggle {
+        position: absolute;
+        top: 15px;
+        right: 60px;
+    }
+    
+    .lang-button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
 }
 
 .nav-links a {
@@ -214,6 +225,54 @@ body {
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+/* Language Toggle */
+.language-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.lang-button {
+    background: none;
+    border: 1px solid var(--neutral-medium);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-system);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lang-button:hover {
+    border-color: var(--secondary-blue);
+    background: rgba(69, 123, 157, 0.05);
+}
+
+.lang-separator {
+    color: var(--neutral-medium);
+    font-weight: var(--font-weight-regular);
+}
+
+.lang-en, .lang-ru {
+    color: var(--neutral-dark);
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.lang-en.active, .lang-ru.active {
+    color: var(--secondary-blue);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Hide elements based on language */
+[data-lang="ru"] .lang-hidden-ru,
+[data-lang="en"] .lang-hidden-en {
+    display: none !important;
 }
 
 /* Hero Section */
