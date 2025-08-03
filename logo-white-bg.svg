@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="280" height="80" fill="#ffffff" rx="8"/>
+  
+  <!-- Logo Symbol - based on the geometric design from your image -->
+  <g transform="translate(20, 15)">
+    <!-- Outer diamond frame -->
+    <path d="M25 5 L35 15 L25 25 L15 15 Z" 
+          fill="none" 
+          stroke="#1d3557" 
+          stroke-width="2.5" 
+          stroke-linejoin="round"/>
+    
+    <!-- Inner diamond -->
+    <path d="M25 8 L30 13 L25 18 L20 13 Z" 
+          fill="#457b9d" 
+          opacity="0.8"/>
+    
+    <!-- Layered chevron effect -->
+    <g transform="translate(0, 35)">
+      <!-- Top chevron -->
+      <path d="M15 0 L25 0 L35 0 L30 5 L25 0 L20 5 Z" 
+            fill="#1d3557" 
+            opacity="0.9"/>
+      
+      <!-- Middle chevron -->
+      <path d="M17 8 L25 8 L33 8 L28 13 L25 8 L22 13 Z" 
+            fill="#457b9d" 
+            opacity="0.8"/>
+      
+      <!-- Bottom chevron -->
+      <path d="M19 16 L25 16 L31 16 L26 21 L25 16 L24 21 Z" 
+            fill="#a8dadc" 
+            opacity="0.7"/>
+    </g>
+  </g>
+  
+  <!-- Typography - ФРЭС -->
+  <g transform="translate(75, 20)">
+    <!-- Ф -->
+    <g transform="translate(0, 0)">
+      <circle cx="8" cy="20" r="12" fill="none" stroke="#1d3557" stroke-width="3"/>
+      <line x1="8" y1="8" x2="8" y2="32" stroke="#1d3557" stroke-width="3" stroke-linecap="round"/>
+      <line x1="2" y1="20" x2="14" y2="20" stroke="#1d3557" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Р -->
+    <g transform="translate(25, 0)">
+      <line x1="3" y1="8" x2="3" y2="32" stroke="#1d3557" stroke-width="3" stroke-linecap="round"/>
+      <path d="M3 8 L15 8 Q20 8 20 14 Q20 20 15 20 L3 20" 
+            fill="none" 
+            stroke="#1d3557" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Э -->
+    <g transform="translate(50, 0)">
+      <path d="M18 12 Q18 8 14 8 L6 8 Q2 8 2 12 L2 16 L12 16 M2 24 Q2 28 6 28 L14 28 Q18 28 18 24" 
+            fill="none" 
+            stroke="#1d3557" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+    
+    <!-- С -->
+    <g transform="translate(75, 0)">
+      <path d="M18 12 Q18 8 14 8 L6 8 Q2 8 2 12 L2 24 Q2 28 6 28 L14 28 Q18 28 18 24" 
+            fill="none" 
+            stroke="#1d3557" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+  </g>
+  
+  <!-- Subtitle text -->
+  <g transform="translate(20, 55)">
+    <text x="0" y="0" 
+          font-family="system-ui, -apple-system, sans-serif" 
+          font-size="9" 
+          font-weight="500" 
+          fill="#457b9d" 
+          letter-spacing="0.5px">
+      ФОНД РАЗВИТИЯ ЭФФЕКТИВНЫХ СИСТЕМ
+    </text>
+  </g>
+  
+  <!-- Subtle accent line -->
+  <line x1="20" y1="48" x2="260" y2="48" stroke="#a8dadc" stroke-width="1" opacity="0.5"/>
+</svg>
