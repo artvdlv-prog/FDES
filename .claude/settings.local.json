@@ -5,7 +5,8 @@
       "Bash(ls:*)",
       "Bash(rm:*)",
       "Bash(start \"C:\\Users\\art-s\\code\\FDES\\test.html\")",
-      "Bash(explorer:*)"
+      "Bash(explorer:*)",
+      "Bash(powershell:*)"
     ],
     "deny": []
   }

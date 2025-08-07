@@ -116,6 +116,15 @@ body {
     width: auto;
     max-width: 120px;
     object-fit: contain;
+    margin-right: 0.5rem;
+}
+
+.logo-text {
+    color: rgb(4, 50, 83);
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.5px;
+    line-height: 32px;
 }
 
 .brand-name {
