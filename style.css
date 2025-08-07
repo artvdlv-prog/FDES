@@ -111,6 +111,12 @@ body {
 .nav-logo:hover {
     opacity: 0.8;
 }
+.logo-img {
+    height: 32px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+}
 
 .brand-name {
     font-size: 1.1rem;
@@ -198,6 +204,7 @@ body {
         padding: 0.25rem 0.5rem;
         font-size: 0.8rem;
     }
+    
 }
 
 .nav-links a {
@@ -237,10 +244,10 @@ body {
     background: none;
     border: 1px solid var(--neutral-medium);
     border-radius: var(--radius-md);
-    padding: 0.5rem 0.75rem;
-    font-family: var(--font-system);
-    font-size: 0.875rem;
+    color: var(--neutral-dark);
+    font-size: 0.9rem;
     font-weight: var(--font-weight-medium);
+    padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
@@ -262,7 +269,7 @@ body {
     color: var(--neutral-dark);
     transition: color 0.2s ease;
     cursor: pointer;
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     border-radius: var(--radius-sm);
 }
 
@@ -275,11 +282,6 @@ body {
     font-weight: var(--font-weight-semibold);
 }
 
-/* Hide elements based on language */
-[data-lang="ru"] .lang-hidden-ru,
-[data-lang="en"] .lang-hidden-en {
-    display: none !important;
-}
 
 /* Hero Section */
 .hero {

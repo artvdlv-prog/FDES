@@ -2,34 +2,36 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing language switcher...');
     // Mobile navigation toggle
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
     
-    navToggle.addEventListener('click', function() {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    const navLinkItems = document.querySelectorAll('.nav-links a');
-    navLinkItems.forEach(link => {
-        link.addEventListener('click', function() {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
+        // Close mobile menu when clicking on a link
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
 
     // Smooth scrolling for navigation links
+    const navLinkItems = document.querySelectorAll('.nav-links a');
     navLinkItems.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -338,34 +340,17 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', requestScrollUpdate, { passive: true });
     }
 
-    // Language switching functionality - Initialize after a small delay to ensure DOM is ready
-    setTimeout(() => {
-        console.log('Initializing language switcher...');
-        
-        const langToggle = document.getElementById('lang-toggle');
-        const langEn = document.querySelector('.lang-en');
-        const langRu = document.querySelector('.lang-ru');
+    // Language switching functionality
+    const langToggle = document.getElementById('lang-toggle');
+    const langEn = document.querySelector('.lang-en');
+    const langRu = document.querySelector('.lang-ru');
 
-        // Debug: Check if elements are found
-        console.log('Language elements found:', { langToggle, langEn, langRu });
-
-        if (!langToggle || !langEn || !langRu) {
-            console.error('Language toggle elements not found!');
-            console.log('Available elements:', {
-                byId: document.getElementById('lang-toggle'),
-                byClass: document.querySelectorAll('.lang-en, .lang-ru'),
-                allButtons: document.querySelectorAll('button'),
-                allSpans: document.querySelectorAll('span')
-            });
-            return;
-        }
-
+    if (langToggle && langEn && langRu) {
         // Get saved language or default to English
         const savedLanguage = localStorage.getItem('language') || 'en';
         let currentLanguage = savedLanguage;
         
         function setLanguage(lang) {
-            console.log('Setting language to:', lang);
             currentLanguage = lang;
             
             // Update active state
@@ -378,12 +363,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Update all elements with data attributes
             const elements = document.querySelectorAll('[data-en], [data-ru]');
-            console.log(`Found ${elements.length} elements to translate`);
             
-            elements.forEach((element, index) => {
+            elements.forEach(element => {
                 const text = element.getAttribute(`data-${lang}`);
                 if (text) {
-                    console.log(`Updating element ${index}:`, element.tagName, text.substring(0, 50));
                     // Handle HTML content in data attributes
                     if (text.includes('<')) {
                         element.innerHTML = text;
@@ -395,24 +378,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Save language preference
             localStorage.setItem('language', lang);
-            console.log('Language saved to localStorage:', lang);
         }
 
         // Set initial language
         setLanguage(currentLanguage);
 
-        // Language toggle event listeners - listen for clicks on the spans
+        // Language toggle event listeners
         langEn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('EN clicked');
             setLanguage('en');
         });
         
         langRu.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('RU clicked');
             setLanguage('ru');
         });
 
@@ -421,11 +401,8 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             // Toggle between languages when clicking the button
             const newLang = currentLanguage === 'en' ? 'ru' : 'en';
-            console.log('Button clicked, switching to:', newLang);
             setLanguage(newLang);
         });
+    }
 
-        // Add smooth transition for language changes
-        document.documentElement.style.transition = 'opacity 0.2s ease';
-    }, 100); // Small delay to ensure DOM is ready
 });
