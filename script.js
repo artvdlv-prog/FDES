@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add language toggle to mobile menu
             if (languageToggle) {
                 const langToggleClone = languageToggle.cloneNode(true);
+                langToggleClone.style.marginTop = 'var(--space-16)';
                 mobileMenuContent.appendChild(langToggleClone);
             }
             
@@ -427,10 +428,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Language switching functionality
     const langToggle = document.getElementById('lang-toggle');
-    const langEn = document.querySelector('.lang-en');
-    const langRu = document.querySelector('.lang-ru');
+    const currentLangSpan = document.querySelector('.current-lang');
 
-    if (langToggle && langEn && langRu) {
+    if (langToggle && currentLangSpan) {
         // Get saved language or default to English
         const savedLanguage = localStorage.getItem('language') || 'en';
         let currentLanguage = savedLanguage;
@@ -438,9 +438,8 @@ document.addEventListener('DOMContentLoaded', function() {
         function setLanguage(lang) {
             currentLanguage = lang;
             
-            // Update active state
-            langEn.classList.toggle('active', lang === 'en');
-            langRu.classList.toggle('active', lang === 'ru');
+            // Update current language display
+            currentLangSpan.textContent = lang.toUpperCase();
 
             // Update document lang attributes
             document.documentElement.setAttribute('data-lang', lang);
@@ -468,20 +467,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set initial language
         setLanguage(currentLanguage);
 
-        // Language toggle event listeners
-        langEn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setLanguage('en');
-        });
-        
-        langRu.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setLanguage('ru');
-        });
-
-        // Also listen on the button itself
+        // Language toggle event listener
         langToggle.addEventListener('click', (e) => {
             e.preventDefault();
             // Toggle between languages when clicking the button

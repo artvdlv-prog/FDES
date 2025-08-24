@@ -279,24 +279,34 @@ body {
 }
 
 .lang-button {
-    background: none;
-    border: none;
-    font-size: 19px;
-    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    font-size: 14px;
+    color: var(--text-primary);
     cursor: pointer;
     font-family: inherit;
     display: flex;
     align-items: center;
-    gap: var(--space-8);
-}
-
-.lang-en, .lang-ru {
-    transition: color 0.3s ease;
-}
-
-.lang-en.active, .lang-ru.active {
-    color: var(--accent);
+    gap: var(--space-4);
+    padding: var(--space-8) var(--space-12);
+    transition: all 0.3s ease;
     font-weight: var(--font-weight-medium);
+}
+
+.lang-button:hover {
+    background: var(--hover-bg);
+    border-color: var(--accent);
+}
+
+.globe-icon {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.current-lang {
+    font-size: 13px;
+    letter-spacing: 0.5px;
 }
 
 /* Typography */
@@ -428,6 +438,11 @@ p, .large-text {
         margin-top: var(--space-8);
         border-top: 1px solid var(--border);
         padding-top: var(--space-20);
+        justify-content: center;
+    }
+    
+    .mobile-menu-content .lang-button {
+        padding: var(--space-12) var(--space-16);
     }
 }
 
@@ -1853,9 +1868,18 @@ p, .large-text {
     
     /* Improve touch targets */
     .lang-button {
-        font-size: 17px;
-        padding: var(--space-8) var(--space-4);
+        font-size: 14px;
+        padding: var(--space-12) var(--space-16);
         min-height: 44px;
+        gap: var(--space-8);
+    }
+    
+    .lang-button .globe-icon {
+        font-size: 18px;
+    }
+    
+    .lang-button .current-lang {
+        font-size: 14px;
     }
 }
 
