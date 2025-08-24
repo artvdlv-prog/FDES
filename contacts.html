@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="en,ru">
+    <title data-en="Контакты - Фонд Развития Эффективных Систем" data-ru="Контакты - Фонд Развития Эффективных Систем">Контакты - Фонд Развития Эффективных Систем</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="public/logo.png" alt="FDES Logo" class="logo-img">
+                    <span class="logo-text" data-en="FDES" data-ru="ФРЭС">FDES</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="about.html" data-en="About" data-ru="О фонде">О фонде</a>
+                <a href="plan.html" data-en="Strategy" data-ru="Стратегия">Стратегия</a>
+                <a href="goals.html" data-en="Goals" data-ru="Цели">Цели</a>
+                <a href="expertise.html" data-en="Expertise" data-ru="Компетенции">Компетенции</a>
+                <a href="vision.html" data-en="Vision" data-ru="Видение">Видение</a>
+                <a href="contacts.html" class="active" data-en="Contacts" data-ru="Контакты">Контакты</a>
+            </div>
+            <div class="nav-right">
+                <div class="language-toggle">
+                    <button id="lang-toggle" class="lang-button">
+                        <span class="lang-en active">EN</span>
+                        <span class="lang-separator">|</span>
+                        <span class="lang-ru">RU</span>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="about.html" data-en="About" data-ru="О фонде">О фонде</a>
+                <a href="plan.html" data-en="Strategy" data-ru="Стратегия">Стратегия</a>
+                <a href="goals.html" data-en="Goals" data-ru="Цели">Цели</a>
+                <a href="expertise.html" data-en="Expertise" data-ru="Компетенции">Компетенции</a>
+                <a href="vision.html" data-en="Vision" data-ru="Видение">Видение</a>
+                <a href="contacts.html" class="active" data-en="Contacts" data-ru="Контакты">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Contact Information -->
+        <section class="section" style="padding-top: calc(58px + var(--space-48))">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-main">
+                        <h2 data-en="General Information" data-ru="Общая информация">General Information</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4 data-en="Email" data-ru="Email">Email</h4>
+                                <p>info@f-des.org</p>
+                                <p class="contact-description" data-en="For general inquiries and information" data-ru="Для общих вопросов и информации">For general inquiries and information</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🔬</div>
+                            <div class="contact-details">
+                                <h4 data-en="Research" data-ru="Исследования">Research</h4>
+                                <p>info@f-des.org</p>
+                                <p class="contact-description" data-en="For research and academic inquiries" data-ru="Для вопросов, связанных с исследованиями и научной деятельностью">For research and academic inquiries</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🤝</div>
+                            <div class="contact-details">
+                                <h4 data-en="Partnership" data-ru="Партнерство">Partnership</h4>
+                                <p>info@f-des.org</p>
+                                <p class="contact-description" data-en="Для предложений о партнерстве и сотрудничестве" data-ru="Для предложений о партнерстве и сотрудничестве">Для предложений о партнерстве и сотрудничестве</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📰</div>
+                            <div class="contact-details">
+                                <h4 data-en="Пресс-служба" data-ru="Пресс-служба">Пресс-служба</h4>
+                                <p>info@f-des.org</p>
+                                <p class="contact-description" data-en="Для представителей СМИ и журналистов" data-ru="Для представителей СМИ и журналистов">Для представителей СМИ и журналистов</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-section">
+                        <h2 data-en="Написать нам" data-ru="Написать нам">Написать нам</h2>
+                        
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name" data-en="Имя" data-ru="Имя">Имя</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization" data-en="Организация" data-ru="Организация">Организация</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" data-en="Email" data-ru="Email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" data-en="Тема" data-ru="Тема">Тема</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" data-en="Выберите тему" data-ru="Выберите тему">Выберите тему</option>
+                                    <option value="research" data-en="Исследования" data-ru="Исследования">Исследования</option>
+                                    <option value="partnership" data-en="Партнерство" data-ru="Партнерство">Партнерство</option>
+                                    <option value="press" data-en="Пресса" data-ru="Пресса">Пресса</option>
+                                    <option value="other" data-en="Другое" data-ru="Другое">Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" data-en="Сообщение" data-ru="Сообщение">Сообщение</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary" data-en="Отправить" data-ru="Отправить">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Information -->
+        <section class="section-alt">
+            <div class="container">
+                <h2 data-en="Местоположение" data-ru="Местоположение">Местоположение</h2>
+                <div class="office-grid">
+                    <div class="office-info">
+                        <h3 data-en="Главный офис" data-ru="Главный офис">Главный офис</h3>
+                        <div class="office-details">
+                            <div class="office-item">
+                                <div class="office-icon">📍</div>
+                                <p data-en="Москва, Российская Федерация" data-ru="Москва, Российская Федерация">Москва, Российская Федерация</p>
+                            </div>
+                            <div class="office-item">
+                                <div class="office-icon">🕒</div>
+                                <p data-en="Пн-Пт: 9:00 - 18:00 (МСК)" data-ru="Пн-Пт: 9:00 - 18:00 (МСК)">Пн-Пт: 9:00 - 18:00 (МСК)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <div class="map-content">
+                            <div class="map-icon">🗺️</div>
+                            <p data-en="Карта будет размещена здесь" data-ru="Карта будет размещена здесь">Карта будет размещена здесь</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media -->
+        <section class="section">
+            <div class="container">
+                <div class="social-section">
+                    <h2 data-en="Следите за нами" data-ru="Следите за нами">Следите за нами</h2>
+                    <p class="section-intro" data-en="Будьте в курсе наших исследований и достижений" data-ru="Будьте в курсе наших исследований и достижений">Будьте в курсе наших исследований и достижений</p>
+                    
+                    <div class="social-grid">
+                        <a href="#" class="social-link">
+                            <div class="social-icon">💼</div>
+                            <h4>LinkedIn</h4>
+                            <p data-en="Профессиональные новости и обновления" data-ru="Профессиональные новости и обновления">Профессиональные новости и обновления</p>
+                        </a>
+                        
+                        <a href="#" class="social-link">
+                            <div class="social-icon">📚</div>
+                            <h4 data-en="Исследовательский портал" data-ru="Исследовательский портал">Исследовательский портал</h4>
+                            <p data-en="Публикации и исследовательские материалы" data-ru="Публикации и исследовательские материалы">Публикации и исследовательские материалы</p>
+                        </a>
+                        
+                        <a href="#" class="social-link">
+                            <div class="social-icon">📧</div>
+                            <h4 data-en="Рассылка" data-ru="Рассылка">Рассылка</h4>
+                            <p data-en="Ежемесячные обзоры и аналитика" data-ru="Ежемесячные обзоры и аналитика">Ежемесячные обзоры и аналитика</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-en="Foundation for the Development of Effective Systems" data-ru="Фонд Развития Эффективных Систем">Foundation for the Development of Effective Systems</h4>
+                    <p data-en="Building tomorrow's institutions today." data-ru="Строим завтрашние институты сегодня.">Building tomorrow's institutions today.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Contact" data-ru="Контакты">Contact</h4>
+                    <p>info@f-des.org</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Follow" data-ru="Подпишитесь">Follow</h4>
+                    <p>LinkedIn • Research Portal • Newsletter</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="&copy; 2024 Foundation for the Development of Effective Systems. All rights reserved." data-ru="&copy; 2024 Фонд Развития Эффективных Систем. Все права защищены.">&copy; 2024 Foundation for the Development of Effective Systems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
