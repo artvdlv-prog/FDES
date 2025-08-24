@@ -11,7 +11,9 @@
       "Bash(python:*)",
       "Bash(start \"C:\\Users\\art-s\\code\\FDES\\about.html\")",
       "Bash(start \"C:\\Users\\art-s\\code\\FDES\\goals.html\")",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }

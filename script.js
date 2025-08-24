@@ -2,30 +2,111 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile navigation toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile navigation toggle - improved
+    let mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    let mobileMenu = document.getElementById('mobile-menu');
+    
+    // Create mobile menu if it doesn't exist
+    if (!mobileMenuToggle && window.innerWidth <= 768) {
+        const navContainer = document.querySelector('.nav-container');
+        const navLinks = document.querySelector('.nav-links');
+        const languageToggle = document.querySelector('.language-toggle');
+        
+        if (navContainer && navLinks) {
+            // Create mobile menu toggle button
+            const toggleButton = document.createElement('button');
+            toggleButton.id = 'mobile-menu-toggle';
+            toggleButton.className = 'mobile-menu-toggle';
+            toggleButton.innerHTML = '<span></span><span></span><span></span>';
+            toggleButton.setAttribute('aria-label', 'Toggle mobile menu');
+            
+            // Create mobile menu
+            const mobileMenuDiv = document.createElement('div');
+            mobileMenuDiv.id = 'mobile-menu';
+            mobileMenuDiv.className = 'mobile-menu';
+            
+            const mobileMenuContent = document.createElement('div');
+            mobileMenuContent.className = 'mobile-menu-content';
+            
+            // Clone nav links
+            const navLinksClone = navLinks.cloneNode(true);
+            navLinksClone.className = '';
+            Array.from(navLinksClone.children).forEach(link => {
+                mobileMenuContent.appendChild(link.cloneNode(true));
+            });
+            
+            // Add language toggle to mobile menu
+            if (languageToggle) {
+                const langToggleClone = languageToggle.cloneNode(true);
+                mobileMenuContent.appendChild(langToggleClone);
+            }
+            
+            mobileMenuDiv.appendChild(mobileMenuContent);
+            
+            // Insert elements
+            navContainer.appendChild(toggleButton);
+            document.querySelector('.nav').appendChild(mobileMenuDiv);
+            
+            // Update references
+            mobileMenuToggle = toggleButton;
+            mobileMenu = mobileMenuDiv;
+        }
+    }
     
     if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = mobileMenuToggle.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         });
 
+        function openMobileMenu() {
+            mobileMenuToggle.classList.add('active');
+            mobileMenu.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenu.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
         // Close mobile menu when clicking on a link
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-content a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+        const mobileMenuContent = document.querySelector('.mobile-menu-content');
+        if (mobileMenuContent) {
+            mobileMenuContent.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    setTimeout(closeMobileMenu, 200);
+                }
             });
-        });
+        }
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                closeMobileMenu();
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Close menu on resize if window becomes large
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('show')) {
+                closeMobileMenu();
             }
         });
     }

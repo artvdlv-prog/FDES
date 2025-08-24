@@ -366,7 +366,68 @@ p, .large-text {
     h3 { font-size: 24px; }
     
     .nav-links {
-        display: none; /* Hide on mobile - add hamburger menu if needed */
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 0.5px solid var(--border);
+        z-index: 999;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu-content {
+        padding: var(--space-20) var(--space-24);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    
+    .mobile-menu-content a {
+        display: block;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: var(--font-weight-regular);
+        letter-spacing: -0.022em;
+        padding: var(--space-16) var(--space-12);
+        border-radius: var(--radius-medium);
+        transition: all 0.3s ease;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .mobile-menu-content a:hover,
+    .mobile-menu-content a.active {
+        background: var(--surface);
+        color: var(--accent);
+    }
+    
+    .mobile-menu-content .language-toggle {
+        padding: var(--space-16) var(--space-12);
+        margin-top: var(--space-8);
+        border-top: 1px solid var(--border);
+        padding-top: var(--space-20);
     }
 }
 
@@ -1486,52 +1547,70 @@ p, .large-text {
     }
     
     h1 {
-        font-size: 28px;
+        font-size: 24px;
         line-height: 1.2;
+        word-spacing: normal;
+        letter-spacing: -0.3px;
     }
     
     h2 {
-        font-size: 24px;
+        font-size: 20px;
         line-height: 1.25;
     }
     
     h3 {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.3;
     }
     
     h4 {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .nav {
-        height: 48px;
+        height: 54px;
     }
     
     .nav-container {
-        padding: 0 var(--space-12);
+        padding: 0 var(--space-16);
+        gap: var(--space-12);
     }
     
     .logo-text {
         font-size: 20px;
+        white-space: nowrap;
+    }
+    
+    .logo-img {
+        width: 28px;
+        height: 28px;
     }
     
     .hero {
-        min-height: 70vh;
-        padding: calc(48px + var(--space-24)) var(--space-12) var(--space-24) var(--space-12);
+        min-height: 80vh;
+        padding: calc(54px + var(--space-32)) var(--space-16) var(--space-32) var(--space-16);
     }
     
     .hero-container {
-        padding: 0 var(--space-12);
+        padding: 0 var(--space-8);
+        text-align: center;
     }
     
     .hero-title {
-        margin-bottom: var(--space-16);
+        margin-bottom: var(--space-24);
+        word-spacing: normal;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        font-size: 28px !important;
+        line-height: 1.15 !important;
     }
     
     .hero-subtitle {
         font-size: 16px;
-        margin-bottom: var(--space-20);
+        margin-bottom: var(--space-28);
+        line-height: 1.5;
+        text-align: left;
+        max-width: 100%;
     }
     
     .section, .section-alt {
@@ -1663,20 +1742,66 @@ p, .large-text {
     
     /* Better touch targets */
     a[href], button {
-        min-height: 44px;
-        min-width: 44px;
+        min-height: 48px;
+        min-width: 48px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
     }
     
     .nav-links a, .mobile-menu-content a {
-        min-height: 48px;
+        min-height: 52px;
+        padding: var(--space-12) var(--space-16);
+        font-size: 17px;
+        line-height: 1.3;
+    }
+    
+    /* Mobile menu improvements */
+    .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+        padding: var(--space-8);
+    }
+    
+    .mobile-menu-toggle span {
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+    }
+    
+    .mobile-menu-content {
+        padding: var(--space-16) var(--space-20);
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .mobile-menu-content a {
+        padding: var(--space-16) var(--space-12);
+        margin-bottom: var(--space-4);
+        border-radius: var(--radius-medium);
+        font-weight: var(--font-weight-medium);
+    }
+    
+    .mobile-menu-content a.active {
+        background: var(--accent);
+        color: white;
+    }
+    
+    .mobile-menu-content a:hover:not(.active) {
+        background: var(--hover-bg);
+        color: var(--text-primary);
     }
     
     /* Optimize hero text for mobile */
+    .hero-title {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+    
     .hero-title br {
-        display: none;
+        display: block;
     }
     
     /* Make sure content doesn't overflow */
@@ -1700,12 +1825,37 @@ p, .large-text {
     
     /* Optimize logo for very small screens */
     .logo-img {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
     }
     
     .logo-text {
-        font-size: 18px;
+        font-size: 20px;
+        margin-left: var(--space-4);
+    }
+    
+    /* Fix mobile menu positioning */
+    .mobile-menu-toggle {
+        margin-left: auto;
+    }
+    
+    .nav-container {
+        justify-content: space-between;
+        gap: var(--space-16);
+    }
+    
+    /* Better mobile navigation spacing */
+    .mobile-menu-content a {
+        font-size: 17px;
+        padding: var(--space-14) var(--space-12);
+        min-height: 52px;
+    }
+    
+    /* Improve touch targets */
+    .lang-button {
+        font-size: 17px;
+        padding: var(--space-8) var(--space-4);
+        min-height: 44px;
     }
 }
 
