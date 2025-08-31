@@ -1,5 +1,38 @@
 // JavaScript for FRES Website Interactions
 
+// Force English as default language before DOM loads
+document.documentElement.setAttribute('data-lang', 'en');
+document.documentElement.setAttribute('lang', 'en');
+
+// Ensure localStorage has English as default
+if (!localStorage.getItem('language')) {
+    localStorage.setItem('language', 'en');
+}
+
+// Apply language immediately for faster loading
+function applyLanguageImmediately() {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    const elements = document.querySelectorAll('[data-en], [data-ru]');
+    
+    elements.forEach(element => {
+        const text = element.getAttribute(`data-${savedLanguage}`);
+        if (text) {
+            if (text.includes('<')) {
+                element.innerHTML = text;
+            } else {
+                element.textContent = text;
+            }
+        }
+    });
+}
+
+// Apply immediately if DOM is already loaded, otherwise wait
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyLanguageImmediately);
+} else {
+    applyLanguageImmediately();
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle - improved
@@ -390,8 +423,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             .touch-active {
-                transform: scale(0.95) !important;
-                transition: transform 0.1s ease !important;
+                transform: scale(0.96) !important;
+                transition: transform 0.15s ease !important;
+                background: rgba(0, 102, 204, 0.1) !important;
+            }
+            
+            /* Smooth scrolling optimization for mobile */
+            html {
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Improve tap highlight */
+            * {
+                -webkit-tap-highlight-color: rgba(0, 102, 204, 0.2);
+                -webkit-touch-callout: none;
             }
         `;
         document.head.appendChild(style);
@@ -424,6 +470,48 @@ document.addEventListener('DOMContentLoaded', function() {
         // Replace the original scroll listener for mobile
         window.removeEventListener('scroll', arguments.callee);
         window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+        
+        // Improve mobile touch responsiveness
+        document.addEventListener('touchstart', function() {}, { passive: true });
+        document.addEventListener('touchmove', function() {}, { passive: true });
+        
+        // Prevent zoom on input focus
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (viewportMeta) {
+            viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        }
+        
+        // Better mobile menu handling
+        const mobileMenuButton = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            // Improve button accessibility
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.setAttribute('aria-controls', 'mobile-menu');
+            
+            // Add focus management
+            mobileMenuButton.addEventListener('click', function() {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                
+                if (!isExpanded) {
+                    // Focus first menu item when opening
+                    setTimeout(() => {
+                        const firstLink = mobileMenu.querySelector('a');
+                        if (firstLink) firstLink.focus();
+                    }, 100);
+                }
+            });
+            
+            // Handle escape key in mobile menu
+            mobileMenu.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                    mobileMenuButton.focus();
+                }
+            });
+        }
     }
 
     // Language switching functionality
