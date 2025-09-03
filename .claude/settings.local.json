@@ -1,28 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
-      "Bash(ls:*)",
-      "Bash(rm:*)",
-      "Bash(start \"C:\\Users\\art-s\\code\\FDES\\test.html\")",
-      "Bash(explorer:*)",
-      "Bash(powershell:*)",
-      "Bash(start \"C:\\Users\\art-s\\code\\FDES\\index.html\")",
-      "Bash(python:*)",
-      "Bash(start \"C:\\Users\\art-s\\code\\FDES\\about.html\")",
-      "Bash(start \"C:\\Users\\art-s\\code\\FDES\\goals.html\")",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(find:*)",
-      "Bash(for file in goals.html expertise.html contacts.html)",
-      "Bash(do sed -i 's|                <a href=\"\"vision\\.html\"\" data-en=\"\"Vision\"\" data-ru=\"\"Видение\"\">Vision</a>||g' \"$file\")",
-      "Bash(done)",
-      "Bash(for file in about.html plan.html goals.html expertise.html contacts.html)",
-      "Bash(do sed -i 's|                <div class=\"\"footer-section\"\">.*Follow.*</div>||' \"$file\")",
-      "Bash(for file in *.html)",
-      "Bash(do sed -i 's|data-ru=\"\"О фонде\"\"|data-ru=\"\"О нас\"\"|g' \"$file\")"
+      "Bash(grep:*)"
     ],
-    "deny": []
+    "deny": [],
+    "ask": []
   }
 }
