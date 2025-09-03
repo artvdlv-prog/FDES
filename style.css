@@ -2201,24 +2201,18 @@ li {
     margin: 0;
 }
 
-.map-placeholder {
-    background: var(--surface);
-    border: 1px solid var(--border);
+.map-container {
+    width: 100%;
+    height: 300px;
     border-radius: var(--radius-large);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
 }
 
-.map-content {
-    text-align: center;
-    color: var(--text-secondary);
-}
-
-.map-icon {
-    font-size: 48px;
-    margin-bottom: var(--space-12);
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Social Media */
