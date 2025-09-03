@@ -24,6 +24,15 @@ function applyLanguageImmediately() {
             }
         }
     });
+    
+    // Update document title
+    const titleElement = document.querySelector('title[data-en], title[data-ru]');
+    if (titleElement) {
+        const titleText = titleElement.getAttribute(`data-${savedLanguage}`);
+        if (titleText) {
+            document.title = titleText;
+        }
+    }
 }
 
 // Apply immediately if DOM is already loaded, otherwise wait
@@ -545,6 +554,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
+
+            // Update document title
+            const titleElement = document.querySelector('title[data-en], title[data-ru]');
+            if (titleElement) {
+                const titleText = titleElement.getAttribute(`data-${lang}`);
+                if (titleText) {
+                    document.title = titleText;
+                }
+            }
 
             // Save language preference
             localStorage.setItem('language', lang);
