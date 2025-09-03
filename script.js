@@ -1,17 +1,17 @@
 // JavaScript for FRES Website Interactions
 
-// Force English as default language before DOM loads
-document.documentElement.setAttribute('data-lang', 'en');
-document.documentElement.setAttribute('lang', 'en');
+// Force Russian as default language before DOM loads
+document.documentElement.setAttribute('data-lang', 'ru');
+document.documentElement.setAttribute('lang', 'ru');
 
-// Ensure localStorage has English as default
+// Ensure localStorage has Russian as default
 if (!localStorage.getItem('language')) {
-    localStorage.setItem('language', 'en');
+    localStorage.setItem('language', 'ru');
 }
 
 // Apply language immediately for faster loading
 function applyLanguageImmediately() {
-    const savedLanguage = localStorage.getItem('language') || 'en';
+    const savedLanguage = localStorage.getItem('language') || 'ru';
     const elements = document.querySelectorAll('[data-en], [data-ru]');
     
     elements.forEach(element => {
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (langToggle && currentLangSpan) {
         // Get saved language or default to English
-        const savedLanguage = localStorage.getItem('language') || 'en';
+        const savedLanguage = localStorage.getItem('language') || 'ru';
         let currentLanguage = savedLanguage;
         
         function setLanguage(lang) {
