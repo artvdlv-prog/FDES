@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Yandex specific
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Prevent indexing of non-essential files
+Disallow: /public/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Sitemap
+Sitemap: https://f-des.org/sitemap.xml
+
+# Additional directives for better indexing
+Host: f-des.org
