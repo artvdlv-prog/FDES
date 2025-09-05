@@ -2402,16 +2402,7 @@ li {
     }
 }
 
-/* Dark mode considerations for mobile */
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-    :root {
-        --background: #000000;
-        --surface: #1c1c1e;
-        --text-primary: #ffffff;
-        --text-secondary: #8e8e93;
-        --border: #38383a;
-    }
-}
+/* Force light theme - dark mode disabled */
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
