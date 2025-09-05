@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Read(/C:\\Users\\art-s\\code\\FDES/**)",
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
